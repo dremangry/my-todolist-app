@@ -22,6 +22,7 @@ export default new Vuex.Store({
         done: false,
       },
     ],
+    
   },
   getters: {
   },
@@ -40,11 +41,22 @@ export default new Vuex.Store({
       task.done = !task.done;
     },
 
+    updateTask(state, payload) {
+      let task = state.tasks.filter((task) => task.id === payload.id)[0];
+      task.title = payload.title
+    },
+
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
+
+    
   },
   actions: {
+    deleteTask({ commit }, id) {
+      commit('deleteTask', id)
+      commit('showSnackbar', 'Task deleted!')
+    }
   },
   modules: {
   }

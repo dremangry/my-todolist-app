@@ -1,40 +1,39 @@
 <template>
-    <v-list  subheader flat>
-        <div v-for="task in $store.state.tasks" :key="task.id">
-        <v-list-item
-            @click="$store.commit('doneTask', task.id)"
-            :class="{ 'blue lighten-5': task.done }"
-        >
-            <template v-slot:default>
-            <v-list-item-action>
-                <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
-            </v-list-item-action>
-
-            <v-list-item-content>
-                <v-list-item-title
-                :class="{ 'text-decoration-line-through': task.done }"
-                >{{ task.title }}</v-list-item-title
-                >
-            </v-list-item-content>
-
-            <v-list-item-action>
-                <v-btn icon @click.stop="$store.commit('deleteTask', task.id)">
-                <v-icon color="red">mdi-delete</v-icon>
-                </v-btn>
-            </v-list-item-action>
-            </template>
-        </v-list-item>
-
-        <v-divider></v-divider>
-        </div>
-    </v-list>
+    <v-list
+    class="pt-0"
+    flat
+  >
+    <todo-task 
+        v-for="task in $store.state.tasks"
+        :key="task.id"
+        :task="task"
+    />
+  </v-list>
 
 </template>
 
 <script>
+// import TodoTaskMenuVue from './TodoTaskMenu.vue';
+import TodoTasks from './TodoTasks.vue';
+
 export default {
-  name: "TodoAppList",
+    name: "TodoAppList",
+
+    data() {
+        return {
+            dialogs: {
+                delete: false
+            },
+        }
+    },
+  
+components: {
+    "todo-task": TodoTasks
+    // "todo-dialog-delete": TodoDialogDelete,
+    // "todo-task-menu": TodoTaskMenuVue
+  },
 };
+
 </script>
 
 
