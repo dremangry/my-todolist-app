@@ -11,8 +11,8 @@ This project was built with Vue.js version 2 and Vuetify to show the developer's
 
 ## Address
     
-    
--   [Take a look](https://v2.vuejs.org/)
+-    This project was host with [vercel.com](https://vercel.com/)
+-   [Take a look](https://my-todolist-app-ten.vercel.app/)
 
 
 ## Project setup
