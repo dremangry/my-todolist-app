@@ -4,7 +4,7 @@
         <v-text-field
             v-model="newTaskTitle"
             @keyup.enter="task"
-            class="pa-3"
+            class="pa-3" 
             outlined
             label="Add Task"
             hide-details

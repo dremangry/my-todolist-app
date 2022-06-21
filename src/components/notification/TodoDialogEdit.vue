@@ -8,6 +8,7 @@
         <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="primary" text @click="$emit('close')"> Cancel </v-btn>
+            
             <v-btn color="red" text @click="saveTask" :disabled="invalidTitle">
             Save
             </v-btn>

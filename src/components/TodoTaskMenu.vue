@@ -2,7 +2,7 @@
     <div>
         <v-menu bottom left>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="primary" icon v-bind="attrs" v-on="on">
+            <v-btn color="rgb(255, 168, 123)" icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
         </template>
@@ -20,7 +20,6 @@
             </v-list-item>
         </v-list>
         </v-menu>
-
 
         <dialog-edit
         v-if="dialogs.edit"
@@ -64,15 +63,9 @@ export default {
             },
         },
         {
-            title: "Due date",
-            icon: "mdi-calendar",
-            click() {
-            console.log("yesdate");
-            },
-        },
-        {
             title: "Delete",
             icon: "mdi-delete",
+            
             click() {
             this.dialogs.delete = true
             },

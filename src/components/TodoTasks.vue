@@ -2,11 +2,11 @@
     <div >
         <v-list-item
         @click="$store.commit('doneTask', task.id)"
-        :class="{ 'blue lighten-5': task.done }"
+        :class="{ 'orange lighten-5': task.done }"
         >
         <template v-slot:default>
             <v-list-item-action>
-            <v-checkbox :input-value="task.done" color="primary"></v-checkbox>
+            <v-checkbox :input-value="task.done" color="green lighten-1"></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>

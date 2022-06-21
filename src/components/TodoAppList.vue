@@ -5,19 +5,18 @@
         class=" pt-0"
         flat
         >
-        <todo-task 
-            v-for="task in $store.state.tasks"
-            :key="task.id"
-            :task="task"
-        />
-      </v-list>
+            <todo-task 
+                v-for="task in $store.state.tasks"
+                :key="task.id"
+                :task="task"
+            />
+        </v-list>
     </div>
 </div>
 
 </template>
 
 <script>
-// import TodoTaskMenuVue from './TodoTaskMenu.vue';
 import TodoTasks from './TodoTasks.vue';
 
 export default {
@@ -30,11 +29,8 @@ export default {
             },
         }
     },
-  
 components: {
     "todo-task": TodoTasks
-    // "todo-dialog-delete": TodoDialogDelete,
-    // "todo-task-menu": TodoTaskMenuVue
   },
 };
 

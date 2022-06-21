@@ -40,7 +40,4 @@ export default {
 };
 </script>
 
-<style lang="sass">
-.btnLink
-    border: 1px solid white
-</style>
+

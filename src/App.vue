@@ -1,30 +1,27 @@
 <template>
-
-  <v-app id="inspire" class="mvp">
+  <v-app id="inspire">
     <!-- toggle menu -->
     <v-navigation-drawer
-    class="mainColor"
+      class="mainColor"
       v-model="drawer"
       app
       dark
       color="rgb(255, 168, 123)"
     >
-    <div class="drawerIcon">
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-icon large>mdi-format-list-checks</v-icon>
-        </v-list-item-avatar>
+      <div class="drawerIcon">
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-icon large>mdi-format-list-checks</v-icon>
+          </v-list-item-avatar>
 
-        <v-list-item-content>
-          <v-list-item-title class="text-h4 font-weight-bold">
-            More
-          </v-list-item-title>
-          <v-list-item-subtitle>
-            Best Todo ever
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </div>
+          <v-list-item-content>
+            <v-list-item-title class="text-h4 font-weight-bold">
+              More
+            </v-list-item-title>
+            <v-list-item-subtitle> Best Todo ever </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </div>
 
       <v-divider></v-divider>
       <div class="pa-1">
@@ -41,12 +38,19 @@
     </v-navigation-drawer>
     <!-- toggle menu -->
 
-    <v-app-bar app color="orange" dark src="todo.jpg" prominent short elevation="10">
+    <v-app-bar
+      app
+      color="orange"
+      dark
+      src="todo.jpg"
+      prominent
+      short
+      elevation="10"
+    >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
           gradient="to top right, #5454c5, rgba(20,84,122,.5) "
-          
         ></v-img>
       </template>
 
@@ -111,15 +115,10 @@ export default {
 </script>
 
 <style lang="sass">
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap')
   .drawerIcon
-    font-family: 'Roboto', sans-serif
     font-weight: 700
     height: 110px
     display: flex
     align-items: center
     justify-content: center
-
-.mvp
-  background: red  
 </style>
