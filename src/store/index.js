@@ -55,7 +55,6 @@ export default new Vuex.Store({
   actions: {
     deleteTask({ commit }, id) {
       commit('deleteTask', id)
-      commit('showSnackbar', 'Task deleted!')
     }
   },
   modules: {

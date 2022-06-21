@@ -2,11 +2,12 @@
   <div class="home">
     <todo-app-field />
 
-    <todo-app-list v-if="$store.state.tasks.length" />
+    <todo-app-list v-if="$store.state.tasks.length " />
      <div v-else class="noTask">
         <v-icon size="100" color="primary">mdi-check</v-icon>
         <div class="text-h5 primary--text">No Task</div>
     </div>
+    
   </div>
 </template>
 
@@ -30,6 +31,8 @@ export default {
     top: 50%
     transform: translate(-50%, -50%)
     opacity: 0.5
+    
+
 </style>
 
 

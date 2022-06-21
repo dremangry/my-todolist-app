@@ -1,78 +1,66 @@
 <template>
-  <v-app id="inspire">
+
+  <v-app id="inspire" class="mvp">
     <!-- toggle menu -->
     <v-navigation-drawer
+    class="mainColor"
       v-model="drawer"
       app
       dark
-      src="https://cdn.vuetifyjs.com/images/backgrounds/bg-2.jpg"
+      color="rgb(255, 168, 123)"
     >
+    <div class="drawerIcon">
       <v-list-item>
         <v-list-item-avatar>
-          <v-icon>mdi-format-list-checks</v-icon>
+          <v-icon large>mdi-format-list-checks</v-icon>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            Vuetify Todo
+          <v-list-item-title class="text-h4 font-weight-bold">
+            More
           </v-list-item-title>
           <v-list-item-subtitle>
             Best Todo ever
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+    </div>
 
       <v-divider></v-divider>
+      <div class="pa-1">
+        <drawer-info />
+      </div>
 
-      <v-card class="mx-auto" max-width="344">
-        <v-card-title>
-          Top western road trips
-        </v-card-title>
+      <div class="pa-1">
+        <drawer-vuetify />
+      </div>
 
-        <v-card-subtitle>
-          1,000 miles of wonder
-        </v-card-subtitle>
-
-        <v-card-actions>
-          <v-btn color="orange lighten-2" text>
-            Explore
-          </v-btn>
-
-          <v-spacer></v-spacer>
-
-          <v-btn icon @click="show = !show">
-            <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
-          </v-btn>
-        </v-card-actions>
-
-        <v-expand-transition>
-          <div v-show="show">
-            <v-divider></v-divider>
-
-            <v-card-text>
-              I'm a thing. But, like most politicians, he promised more than he
-              could deliver. You won't have time for sleeping, soldier, not with
-              all the bed making you'll be doing. Then we'll go with that data
-              file! Hey, you add a one and two zeros to that or we walk! You're
-              going to do his laundry? I've got to find a way to escape.
-            </v-card-text>
-          </div>
-        </v-expand-transition>
-      </v-card>
+      <div class="pa-1">
+        <drawer-rating />
+      </div>
     </v-navigation-drawer>
     <!-- toggle menu -->
 
-    <v-app-bar app color="primary" dark src="background.jpg" prominent short>
+    <v-app-bar app color="orange" dark src="todo.jpg" prominent short elevation="10">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, #5454c5, rgba(20,84,122,.5) "
+          
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Vuetify Todo</v-app-bar-title>
+      <v-container class="header-container pa-0">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+        </v-row>
+        <v-row>
+          <v-toolbar-title class="text-h4 ml-4"> My Todo App </v-toolbar-title>
+        </v-row>
+        <div class="text-subtitle-1 ml-2">{{ displayDate() }}.</div>
+        <v-row> </v-row>
+      </v-container>
 
       <v-spacer></v-spacer>
 
@@ -89,23 +77,49 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <TodoApp />
+      <todo-app />
     </v-main>
-    
   </v-app>
 </template>
 
 <script>
 import TodoApp from "./components/TodoApp";
-
+import TodoDrawerInfo from "@/components/drawer/TodoDrawerInfo.vue";
+import TodoDrawerVuetify from "@/components/drawer/TodoDrawerVuetify.vue";
+import TodoDrawerRating from "@/components/drawer/TodoDrawerRating.vue";
 
 export default {
-  name: "App",
+  // name: "App",
 
   components: {
-    TodoApp,
+    "todo-app": TodoApp,
+    "drawer-info": TodoDrawerInfo,
+    "drawer-vuetify": TodoDrawerVuetify,
+    "drawer-rating": TodoDrawerRating,
+  },
+  methods: {
+    displayDate() {
+      const event = new Date();
+      const jsonDate = event.toJSON();
+
+      return new Date(jsonDate).toDateString();
+    },
   },
 
-  data: () => ({ drawer: true, show: false }),
+  data: () => ({ drawer: true }),
 };
 </script>
+
+<style lang="sass">
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap')
+  .drawerIcon
+    font-family: 'Roboto', sans-serif
+    font-weight: 700
+    height: 110px
+    display: flex
+    align-items: center
+    justify-content: center
+
+.mvp
+  background: red  
+</style>

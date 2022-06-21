@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
         <v-list-item
         @click="$store.commit('doneTask', task.id)"
         :class="{ 'blue lighten-5': task.done }"
@@ -10,7 +10,7 @@
             </v-list-item-action>
 
             <v-list-item-content>
-            <v-list-item-title
+            <v-list-item-title class="font-weight-medium"
                 :class="{ 'text-decoration-line-through': task.done }"
             >
                 {{ task.title }}
@@ -18,9 +18,6 @@
             </v-list-item-content>
 
             <v-list-item-action>
-            <!-- <v-btn @click.stop="dialogs.delete = true" icon>
-                <v-icon color="primary lighten-1">mdi-delete</v-icon>
-            </v-btn> -->
             <todo-task-menu :task="task"/>
             </v-list-item-action>
         </template>
